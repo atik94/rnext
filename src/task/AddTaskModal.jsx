@@ -30,8 +30,25 @@ const AddTaskModal = ({ setShowAddModal, taskToUpdate, onCloseClick }) => {
 
   function handleAddTask(e) {
     e.preventDefault();
-    console.log(task);
+    if (isAdd) {
+      addTask();
+    } else {
+      editTask();
+    }
+  }
+
+  function addTask() {
+    // Call your add task API route here with the task state
+    console.log("Adding task:", task);
     setShowAddModal(false);
+    // Reset task state or perform any necessary actions
+  }
+
+  function editTask() {
+    // Call your edit task API route here with the task state
+    console.log("Editing task:", task);
+    setShowAddModal(false);
+    // Reset task state or perform any necessary actions
   }
 
   return (
@@ -42,7 +59,6 @@ const AddTaskModal = ({ setShowAddModal, taskToUpdate, onCloseClick }) => {
         className="mx-auto my-10 w-full max-w-[740px] rounded-xl border border-[#FEFBFB]/[36%] bg-[#191D26] p-9 max-md:px-4 lg:my-20 lg:p-11 absolute z-10 top-1/4 left-1/4"
       >
         <h2 className="mb-9 text-center text-2xl font-bold text-white lg:mb-11 lg:text-[28px]">
-          {" "}
           {isAdd ? "Add New Task" : "Edit Task"}
         </h2>
 
